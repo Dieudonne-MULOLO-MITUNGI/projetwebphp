@@ -1,0 +1,22 @@
+<?php
+//Requete pour récuperer toutes les lignes de la table matières
+
+$connexion = getpDO(); ! $sql =   "UPDATE matieres SET nom=listematieres WHERE id=?"; 
+
+$sql = "SELECT * FROM listematieres";
+$resultat = $connexion->query($sql);
+var_dump($resultat);
+
+var_dump($resultat->fetch(PDO::FETCH_ASSOC));
+var_dump($resultat->fetch(PDO::FETCH_ASSOC));
+
+while(($lignematiere = $resultat->fetch(PDO::FETCH_ASSOC))!== false){
+	//var_dump($ligne);
+echo $listematieres["matiere"]. " ". $listematieres["matiere"]. "<br>";
+}//fin du parcours de la requête
+
+
+
+
+//Affichage de la vue
+renderView('matières',['listematieres'=>$listeMatieres]);
